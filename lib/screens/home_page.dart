@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
 import 'package:ui_clone/components/custom_appbar.dart';
 import 'package:ui_clone/components/custom_balance_card.dart';
 import 'package:ui_clone/const/colors.dart';
@@ -47,9 +45,19 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 20),
 
               // card
-              CustomBalanceCard(),
+              CustomBalanceCard(
+                iconPath: 'assets/wallet.svg',
+                iconBg: kPurple,
+                cardBg: kCardBGBlack,
+                topText: 'Total Balance',
+                balance: '\$ 12,000',
+                topTextColor: kTextGray,
+                balanceTextColor: kWhite,
+                precentageValue: '+13%',
+                precentageTextColor: kPurple,
+              ),
+
               SizedBox(height: 15),
-              CustomBalanceCard(),
             ],
           ),
         ),

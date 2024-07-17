@@ -3,15 +3,33 @@ import 'package:flutter_svg/svg.dart';
 import 'package:ui_clone/const/colors.dart';
 
 class CustomBalanceCard extends StatelessWidget {
+  final Color cardBg;
+  final String topText;
+  final String balance;
+  final Color topTextColor;
+  final Color balanceTextColor;
+  final String precentageValue;
+  final Color precentageTextColor;
+  final String iconPath;
+  final Color iconBg;
   const CustomBalanceCard({
     super.key,
+    required this.cardBg,
+    required this.topText,
+    required this.balance,
+    required this.topTextColor,
+    required this.balanceTextColor,
+    required this.precentageValue,
+    required this.precentageTextColor,
+    required this.iconPath,
+    required this.iconBg,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: kCardBGBlack,
+        color: cardBg,
         borderRadius: BorderRadius.circular(18),
       ),
       child: Padding(
@@ -25,13 +43,13 @@ class CustomBalanceCard extends StatelessWidget {
                 // svg
                 Container(
                   decoration: BoxDecoration(
-                    color: kPurple,
+                    color: iconBg,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: SvgPicture.asset(
-                      'assets/wallet.svg',
+                      iconPath,
                       color: kWhite,
                     ),
                   ),
@@ -44,19 +62,20 @@ class CustomBalanceCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Availabale Balance',
+                      topText,
                       style: TextStyle(
                           fontWeight: FontWeight.w400,
                           fontSize: 14,
-                          color: Color.fromARGB(255, 186, 186, 186)),
+                          color: topTextColor),
                     ),
                     SizedBox(height: 2),
                     Text(
-                      '\$27,980.24',
+                      balance,
                       style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 26,
-                          color: Color.fromARGB(255, 223, 223, 223)),
+                        fontWeight: FontWeight.w700,
+                        fontSize: 26,
+                        color: balanceTextColor,
+                      ),
                     ),
                   ],
                 ),
@@ -79,11 +98,11 @@ class CustomBalanceCard extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                   child: Text(
-                    '+13%',
+                    precentageValue,
                     style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 12,
-                        color: kPurple),
+                        color: precentageTextColor),
                   ),
                 ),
               ),
