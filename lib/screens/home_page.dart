@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:ui_clone/components/custom_icon_button.dart';
+
+import 'package:ui_clone/components/custom_appbar.dart';
 import 'package:ui_clone/const/colors.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,32 +14,35 @@ class HomePage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // appbar
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              CustomAppBar(),
+
+              SizedBox(height: 20),
+
+              // text
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // menu icon
-                  SvgPicture.asset('assets/menu.svg'),
-
-                  // setting + pfp
-                  Row(
-                    children: [
-                      // setting
-                      CustomIconButton(),
-
-                      SizedBox(width: 10),
-
-                      // pfp
-                      CircleAvatar(
-                        radius: 25,
-                      ),
-                    ],
+                  Text(
+                    'Hello',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 20,
+                        color: kTextGray),
+                  ),
+                  Text(
+                    'Hi Richard S',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 38,
+                        color: kTextBlack),
                   ),
                 ],
               ),
 
-              // text
+              // card
             ],
           ),
         ),
